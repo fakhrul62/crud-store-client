@@ -17,7 +17,7 @@ const AddEquipments = () => {
         const email = form.email.value;
         const photo = form.photo.value;
         const description = form.description.value;
-        const newProduct = {name, category, price, rating, customization, processing,user, email, photo, description}
+        const newProduct = {name, category, price, rating, customization, processing,user, email, photo, description};
         console.log(newProduct);
         //send data to the server
         fetch('http://localhost:5000/store',{
@@ -109,7 +109,7 @@ const AddEquipments = () => {
             </div>
             <input
               type="text"
-              placeholder="Processing Time in Days"
+              placeholder="Processing Time in Hours"
               name="processing"
               className="input input-bordered w-full "
             />

@@ -33,7 +33,7 @@ const ProductCard = ({ product }) => {
           </h3>
         </div>
         <div className="flex items-center justify-between mt-3 ">
-          <Link>
+          <Link to={`/update/${_id}`}>
             <button
               className="hover:bg-[#3cad4548] bg-white border hover:border-mongo border-zinc-700 px-10 py-1 text-zinc-900 hover:text-[#209429] font-body rounded"
               type="button"

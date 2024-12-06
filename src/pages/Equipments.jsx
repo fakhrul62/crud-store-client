@@ -27,7 +27,7 @@ const Equipments = () => {
             <tbody>
               {/* row 1 */}
               {allProducts.map((product, index) => (
-                <tr className="*:text-base">
+                <tr key={product._id} className="*:text-base">
                   <th>{index + 1}</th>
                   <td>{product.name}</td>
                   <td>{product.category}</td>
