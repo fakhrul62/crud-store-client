@@ -11,8 +11,7 @@ const FooterSection = () => {
         <img
           src="https://i.ibb.co.com/cwqB63N/logo.png"
           className="w-7"
-          alt=""
-          srcset=""
+          
         />
         <span className="font-logo">CRUD STORE</span>
       </Link>

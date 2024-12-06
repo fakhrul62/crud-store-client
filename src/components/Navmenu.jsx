@@ -105,7 +105,7 @@ const Navmenu = () => {
             to="/"
             className="text-2xl font-black font-logo text-fireb flex gap-2 items-center"
           >
-            <img src="https://i.ibb.co.com/cwqB63N/logo.png" className="w-7" alt="" srcset="" /> 
+            <img src="https://i.ibb.co.com/cwqB63N/logo.png" className="w-7" alt="" /> 
             <span className="font-logo">CRUD STORE</span>
           </Link>
         </div>

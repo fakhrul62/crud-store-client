@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import Swal from 'sweetalert2'
+import { AuthContext } from "../Provider/AuthProvider";
 
 const AddEquipments = () => {
+  const { user } = useContext(AuthContext);
     const handleAddEquip = e =>{
         e.preventDefault();
         const form = e.target;
@@ -11,9 +13,11 @@ const AddEquipments = () => {
         const rating = form.rating.value;
         const customization = form.customization.value;
         const processing = form.processing.value;
+        const user = form.user.value;
+        const email = form.email.value;
         const photo = form.photo.value;
         const description = form.description.value;
-        const newProduct = {name, category, price, rating, customization, processing, photo, description}
+        const newProduct = {name, category, price, rating, customization, processing,user, email, photo, description}
         console.log(newProduct);
         //send data to the server
         fetch('http://localhost:5000/store',{
@@ -105,8 +109,30 @@ const AddEquipments = () => {
             </div>
             <input
               type="text"
-              placeholder="Processing Time"
+              placeholder="Processing Time in Days"
               name="processing"
+              className="input input-bordered w-full "
+            />
+          </label>
+          <label className="form-control w-full ">
+            <div className="label">
+              <span className="label-text">Users Name</span>
+            </div>
+            <input
+              type="text"
+              value={user.displayName}
+              name="user" disabled
+              className="input input-bordered w-full "
+            />
+          </label>
+          <label className="form-control w-full ">
+            <div className="label">
+              <span className="label-text">Users Email</span>
+            </div>
+            <input
+              type="text"
+              value={user.email}
+              name="email" disabled
               className="input input-bordered w-full "
             />
           </label>

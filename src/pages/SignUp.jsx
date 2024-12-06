@@ -57,7 +57,7 @@ const SignUp = () => {
           Sign Up now!
         </h2>
         <div className="mt-5 mb-20">
-          <form className="card-body" onSubmit={handleSignUp}>
+          <form className="card-body font-body" onSubmit={handleSignUp}>
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Name</span>
@@ -77,7 +77,7 @@ const SignUp = () => {
               <input
                 type="email"
                 placeholder="email"
-                name="email"
+                name="Your email"
                 className="input input-bordered"
                 required
               />
@@ -100,17 +100,17 @@ const SignUp = () => {
               </label>
               <input
                 type="password"
-                placeholder="password"
+                placeholder="Your password"
                 name="password"
                 className="input input-bordered"
                 required
               />
             </div>
             <div className="form-control mt-6">
-              <button className="btn bg-black text-white">Sign Up</button>
+              <button className="btn bg-black text-white hover:bg-mongo">Sign Up</button>
             </div>
           </form>
-          <h3 className="font-body text-center">Already have an account? <Link to='/sign-in'>Log in Now</Link></h3>
+          <h3 className="font-body text-center text-xl">Already have an account? <Link to='/sign-in' className="text-mongo">Log in Now</Link></h3>
         </div>
       </div>
     </div>
