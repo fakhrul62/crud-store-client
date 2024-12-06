@@ -9,6 +9,7 @@ import SignUp from "../pages/SignUp";
 import SignIn from "../pages/SignIn";
 import PrivateRoute from "./PrivateRoute";
 import ProductDetails from "../pages/ProductDetails";
+import UpdateProduct from "../pages/UpdateProduct";
 
 const Router = createBrowserRouter([
   {
@@ -40,6 +41,7 @@ const Router = createBrowserRouter([
             <MyEquipments></MyEquipments>
           </PrivateRoute>
         ),
+        loader: () => fetch("http://localhost:5000/store"),
       },
       {
         path: "/profile",
@@ -65,6 +67,14 @@ const Router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: () => fetch("http://localhost:5000/store"),
+      },
+      {
+        path: "/update",
+        element: (
+          <PrivateRoute>
+            <UpdateProduct></UpdateProduct>
+          </PrivateRoute>
+        ),
       },
     ],
   },

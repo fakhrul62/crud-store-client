@@ -1,11 +1,26 @@
-import React from 'react';
+import React, { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
+import { useLoaderData } from "react-router-dom";
+import ProductCard from "../components/ProductCard";
 
 const MyEquipments = () => {
-    return (
-        <div>
-            MyEquipments
+  const { user } = useContext(AuthContext);
+  const allProducts = useLoaderData();
+  const myProducts = allProducts.filter((prod) => prod.email === user.email);
+  return (
+    <div>
+      <div className="bg-zinc-100 py-10">
+        <div className="w-10/12 mx-auto">
+          <h1 className="font-logo text-3xl">My Equipments</h1>
         </div>
-    );
+      </div>
+      <div className="w-10/12 mx-auto my-10 grid md:grid-cols-3 gap-5">
+        {myProducts.map((product) => (
+          <ProductCard key={product._id} product={product}></ProductCard>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default MyEquipments;
