@@ -1,10 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./Navmenu.css";
 import { AuthContext } from "../Provider/AuthProvider";
+import { FaUserSecret } from "react-icons/fa";
 
 const Navmenu = () => {
   const { user, logOut } = useContext(AuthContext);
+  
   const li = (
     <>
       <NavLink to="/">Home</NavLink>
@@ -121,7 +123,7 @@ const Navmenu = () => {
                 <img
                   className="h-10 object-contain rounded-lg"
                   src={
-                    user?.photoURL !== "" ? user?.photoURL : <FaUserSecret />
+                    user?.photoURL !== "" ? user?.photoURL : user?.photoURL
                   }
                 />
               </div>

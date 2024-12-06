@@ -15,6 +15,7 @@ const AuthProvider = ({ children }) => {
   //
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [profilePic, setProfilePic] = useState(null);
   //create user
   const createUser = (email, password) => {
     setLoading(true);
@@ -38,12 +39,32 @@ const AuthProvider = ({ children }) => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       console.log("Observing Current user: ", currentUser);
+      setProfilePic(currentUser?.photoURL);
       setLoading(false);
     });
     return () => {
       unSubscribe();
     };
   }, []);
+
+  /**
+   * useEffect(() => {
+  const unSubscribe = onAuthStateChanged(auth, async (currentUser) => {
+    if (currentUser) {
+      // Optionally fetch additional details if necessary
+      await currentUser.reload(); // Ensure the latest user info is fetched
+      setUser({ ...currentUser });
+      console.log("Observing Current user: ", currentUser);
+    }
+    setLoading(false);
+  });
+
+  return () => {
+    unSubscribe();
+  };
+}, []);
+
+   */
   const userInfo = {
     user,
     loading,
@@ -51,6 +72,7 @@ const AuthProvider = ({ children }) => {
     signInUser,
     logOut,
     googleSignIn,
+    profilePic
   };
   return (
     <AuthContext.Provider value={userInfo}>{children}</AuthContext.Provider>

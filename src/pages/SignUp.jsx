@@ -14,14 +14,32 @@ const SignUp = () => {
     const email = form.email.value;
     const photoURL = form.photoURL.value;
     const password = form.password.value;
+    if (password.length < 6) {
+      Swal.fire({
+        title: "Pass should be at least 6 characters!!!",
+        icon: "error",
+      });
+      return;
+    }
+    const hasUpperCase = /[A-Z]/.test(password);
+    const hasLowerCase = /[a-z]/.test(password);
+
+    if (!hasUpperCase || !hasLowerCase) {
+      Swal.fire({
+        title:
+          "Password must include at least one uppercase and one lowercase letter!!!",
+        icon: "error",
+      });
+      return;
+    }
 
     createUser(email, password)
-      .then((result) => {
+      .then(async(result) => {
         const user = result.user;
         console.log("user created to FB", result.user);
         const newUser = { name, email, photoURL, password };
         //save new user to the DB
-        fetch("http://localhost:5000/users", {
+        await fetch("http://localhost:5000/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -107,10 +125,17 @@ const SignUp = () => {
               />
             </div>
             <div className="form-control mt-6">
-              <button className="btn bg-black text-white hover:bg-mongo">Sign Up</button>
+              <button className="btn bg-black text-white hover:bg-mongo">
+                Sign Up
+              </button>
             </div>
           </form>
-          <h3 className="font-body text-center text-xl">Already have an account? <Link to='/sign-in' className="text-mongo">Log in Now</Link></h3>
+          <h3 className="font-body text-center text-xl">
+            Already have an account?{" "}
+            <Link to="/sign-in" className="text-mongo">
+              Log in Now
+            </Link>
+          </h3>
         </div>
       </div>
     </div>
