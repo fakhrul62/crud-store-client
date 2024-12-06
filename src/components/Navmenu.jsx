@@ -60,7 +60,7 @@ const Navmenu = () => {
             className="text-2xl font-black font-logo text-fireb flex gap-2 items-center"
           >
             <img src="https://i.ibb.co.com/cwqB63N/logo.png" className="w-7" alt="" srcset="" /> 
-            <span>CRUD STORE</span>
+            <span className="font-logo">CRUD STORE</span>
           </Link>
         </div>
         <div className="navbar-end hidden flex-grow lg:flex gap-10">

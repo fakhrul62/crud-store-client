@@ -10,6 +10,10 @@ export default {
       colors: {
         'mongo': '#3cad45',
         'fireb': '#f26120',
+      },
+      fontFamily: {
+        logo: 'Anta, sans-serif', 
+        body: 'Oswald, serif', 
       }
     },
   },
