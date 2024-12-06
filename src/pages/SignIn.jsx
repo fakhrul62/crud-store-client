@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const SignIn = () => {
-  const { signInUser } = useContext(AuthContext);
+  const { signInUser, googleSignIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const handleSignIn = (e) => {
@@ -34,6 +35,10 @@ const SignIn = () => {
       })
       .catch((error) => {
         console.log(error.message);
+        Swal.fire({
+            title: "Wrong Credentials!",
+            icon: "error",
+          });
       });
   };
   return (
@@ -73,7 +78,14 @@ const SignIn = () => {
               <button className="btn bg-black text-white">Log In</button>
             </div>
           </form>
-          <h3 className="font-body text-center">New to this site? <Link to='/sign-up'>Register Now</Link></h3>
+          <div className="my-4 text-center">
+            <button onClick={googleSignIn} className="btn bg-black text-white">
+              Sign in with Google
+            </button>
+          </div>
+          <h3 className="font-body text-center">
+            New to this site? <Link to="/sign-up">Register Now</Link>
+          </h3>
         </div>
       </div>
     </div>
