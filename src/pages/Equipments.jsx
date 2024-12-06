@@ -20,6 +20,7 @@ const Equipments = () => {
                 <th>No.</th>
                 <th>Name</th>
                 <th>Category</th>
+                <th>Added By</th>
                 <th>Price</th>
                 <th className="text-center">Action</th>
               </tr>
@@ -31,6 +32,7 @@ const Equipments = () => {
                   <th>{index + 1}</th>
                   <td>{product.name}</td>
                   <td>{product.category}</td>
+                  <td>{product.user}</td>
                   <td><span className="text-mongo">$</span>{product.price}</td>
                   <td className="text-center">
                     <Link to={`/details/${product._id}`}>
