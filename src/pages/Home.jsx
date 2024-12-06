@@ -1,5 +1,7 @@
 import Hero from "../components/Hero";
 import { FaRunning } from "react-icons/fa";
+import ProductSection from "../components/ProductSection";
+import CategorySection from "../components/CategorySection";
 
 const Home = () => {
   return (
@@ -14,14 +16,14 @@ const Home = () => {
               Elevate Your Game with Top-Quality Sports Equipment
             </h1>
             <h3 className="font-semibold text-xl font-body text-zinc-900">
-            Unleash Your Potential with Gear Built for Champions
+              Unleash Your Potential with Gear Built for Champions
             </h3>
             <ul className="*:text-zinc-900 *:flex *:items-center *:gap-2 *:font-body *:font-medium mt-7">
               <li>
-              <FaRunning className="text-mongo" /> Train Hard. Play Harder.
+                <FaRunning className="text-mongo" /> Train Hard. Play Harder.
               </li>
               <li>
-              <FaRunning className="text-mongo" />
+                <FaRunning className="text-mongo" />
                 Conquer the Field, Court, or Gym – We’ve Got You Covered!
               </li>
             </ul>
@@ -37,6 +39,12 @@ const Home = () => {
           <div className="col-span-1 mt-10 md:mt-0">
             <Hero></Hero>
           </div>
+        </div>
+        <div>
+          <ProductSection></ProductSection>
+        </div>
+        <div>
+          <CategorySection></CategorySection>
         </div>
       </div>
     </div>
