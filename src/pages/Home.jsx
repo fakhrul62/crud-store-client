@@ -2,8 +2,12 @@ import Hero from "../components/Hero";
 import { FaRunning } from "react-icons/fa";
 import ProductSection from "../components/ProductSection";
 import CategorySection from "../components/CategorySection";
+import { useLoaderData } from "react-router-dom";
+import AboutSection from "../components/AboutSection";
+import BlogSection from "../components/BlogSection";
 
 const Home = () => {
+  const allProducts = useLoaderData();
   return (
     <div>
       <div className="bg-white md:py-24 py-10">
@@ -41,10 +45,16 @@ const Home = () => {
           </div>
         </div>
         <div>
-          <ProductSection></ProductSection>
+          <AboutSection></AboutSection>
+        </div>
+        <div>
+          <ProductSection allProducts={allProducts}></ProductSection>
         </div>
         <div>
           <CategorySection></CategorySection>
+        </div>
+        <div>
+          <BlogSection></BlogSection>
         </div>
       </div>
     </div>

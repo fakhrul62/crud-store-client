@@ -31,9 +31,9 @@ const Equipments = () => {
                   <th>{index + 1}</th>
                   <td>{product.name}</td>
                   <td>{product.category}</td>
-                  <td>${product.price}</td>
+                  <td><span className="text-mongo">$</span>{product.price}</td>
                   <td className="text-center">
-                    <Link>
+                    <Link to={`/details/${product._id}`}>
                       <button
                         className="hover:bg-sky-100 bg-white border hover:border-sky-600 border-zinc-700 px-5 py-1 text-zinc-900 hover:text-sky-600 font-body rounded"
                         type="button"

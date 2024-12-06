@@ -76,8 +76,8 @@ const SignUp = () => {
               </label>
               <input
                 type="email"
-                placeholder="email"
-                name="Your email"
+                placeholder="Your email"
+                name="email"
                 className="input input-bordered"
                 required
               />
