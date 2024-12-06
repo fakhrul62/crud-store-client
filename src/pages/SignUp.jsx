@@ -5,7 +5,7 @@ import { updateProfile } from "firebase/auth";
 import { Link } from "react-router-dom";
 
 const SignUp = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, setUser } = useContext(AuthContext);
   ///
   const handleSignUp = (e) => {
     e.preventDefault();
@@ -34,39 +34,59 @@ const SignUp = () => {
     }
 
     createUser(email, password)
-      .then(async(result) => {
-        const user = result.user;
-        console.log("user created to FB", result.user);
-        const newUser = { name, email, photoURL, password };
-        //save new user to the DB
-        await fetch("http://localhost:5000/users", {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(newUser),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            console.log("user created to DB", data);
-            updateProfile(user, {
-              displayName: name,
-              photoURL: photoURL,
-            })
-              .then(() => {})
-              .catch((error) => {
-                console.log(error.message);
-              });
-            Swal.fire({
-              title: "User Created!",
-              icon: "success",
-            });
-          });
-        form.reset();
-      })
-      .catch((error) => {
-        console.log("you got error bro:", error.message);
+  .then(async (result) => {
+    const user = result.user;
+
+    try {
+      // Step 1: Update Firebase Profile
+      await updateProfile(user, { displayName: name, photoURL });
+
+      // Step 2: Save Updated User to MongoDB
+      const newUser = { name, email, photoURL, password };
+      const response = await fetch("http://localhost:5000/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newUser),
       });
+
+      if (!response.ok) {
+        throw new Error("Failed to save user to MongoDB");
+      }
+
+      const responseData = await response.json();
+      console.log("User saved to MongoDB:", responseData);
+
+      // Step 3: Update Context (if required)
+      const updatedUser = { ...user, displayName: name, photoURL };
+      setUser(updatedUser); // Use AuthContext's setUser to reflect changes immediately
+
+      Swal.fire({
+        title: "User Created Successfully!",
+        icon: "success",
+      });
+
+      // Reset the form after success
+      form.reset();
+    } catch (error) {
+      console.error("Error during sign-up flow:", error.message);
+      Swal.fire({
+        title: "Error",
+        text: error.message,
+        icon: "error",
+      });
+    }
+  })
+  .catch((error) => {
+    console.error("Error creating user:", error.message);
+    Swal.fire({
+      title: "Error",
+      text: error.message,
+      icon: "error",
+    });
+  });
+
   };
   return (
     <div>

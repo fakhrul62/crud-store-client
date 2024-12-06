@@ -15,7 +15,6 @@ const AuthProvider = ({ children }) => {
   //
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [profilePic, setProfilePic] = useState(null);
   //create user
   const createUser = (email, password) => {
     setLoading(true);
@@ -39,7 +38,6 @@ const AuthProvider = ({ children }) => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       console.log("Observing Current user: ", currentUser);
-      setProfilePic(currentUser?.photoURL);
       setLoading(false);
     });
     return () => {
@@ -69,10 +67,10 @@ const AuthProvider = ({ children }) => {
     user,
     loading,
     createUser,
+    setUser,
     signInUser,
     logOut,
     googleSignIn,
-    profilePic
   };
   return (
     <AuthContext.Provider value={userInfo}>{children}</AuthContext.Provider>
