@@ -1,8 +1,9 @@
 import React from "react";
 import { AiTwotoneStar } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, allProducts, setAllProducts }) => {
   const {
     _id,
     name,
@@ -16,6 +17,36 @@ const ProductCard = ({ product }) => {
     photo,
     description,
   } = product;
+  const handleDelete = (_id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#848489",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/store/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Product has been deleted.",
+                icon: "success",
+              })
+              const remaining = allProducts.filter(cof=>  cof._id !== _id);
+              setAllProducts(remaining);
+            }
+          });
+      }
+    });
+  };
   return (
     <div className="border p-5 rounded-lg shadow-md">
       <img src={photo} className="h-80 w-full object-cover rounded-md" />
@@ -42,7 +73,7 @@ const ProductCard = ({ product }) => {
             </button>
           </Link>
           <Link>
-            <button
+            <button onClick={() => handleDelete(_id)}
               className="hover:bg-[#f2612048] bg-white border hover:border-fireb border-zinc-700 px-10 py-1 text-zinc-900 hover:text-[#f26120] font-body rounded"
               type="button"
             >
