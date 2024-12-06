@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./Navmenu.css";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Navmenu = () => {
+  const { user, logOut } = useContext(AuthContext);
   const li = (
     <>
       <NavLink to="/">Home</NavLink>
@@ -12,6 +14,16 @@ const Navmenu = () => {
       <NavLink to="/profile">Profile</NavLink>
     </>
   );
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        console.log("user logged out");
+      })
+      .catch((error) => {
+        const errorCode = error.message;
+        console.log(errorCode);
+      });
+  };
   return (
     <div className="shadow">
       <div className="navbar w-10/12 mx-auto py-2 flex">
@@ -39,12 +51,32 @@ const Navmenu = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-5 shadow gap-y-4"
             >
               {li}
-
-              <div className="flex gap-3 items-center">
+              {user ? (
+            <div className="flex gap-3 items-center">
+              <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
+                <img
+                  className="h-10 object-contain rounded-lg"
+                  src={
+                    user?.photoURL !== "" ? user?.photoURL : <FaUserSecret />
+                  }
+                />
+              </div>
+              <Link>
+                <button
+                  onClick={handleLogOut}
+                  className="bg-transparent border-2 border-blue-700 px-5 py-2 text-blue-700 font-body font-semibold rounded"
+                  type="button"
+                >
+                  Logout
+                </button>
+              </Link>
+            </div>
+          ) : (
+            <div className="flex gap-3 items-center">
                 <div className="tooltip tooltip-bottom">
                   <img className="h-10 object-contain rounded-lg" src="" />
                 </div>
-                <Link>
+                <Link  to='/sign-in'>
                   <button
                     className="bg-transparent border-2 border-mongo px-5 py-2 text-mongo font-body font-semibold rounded"
                     type="button"
@@ -53,6 +85,20 @@ const Navmenu = () => {
                   </button>
                 </Link>
               </div>
+          )}
+              {/* <div className="flex gap-3 items-center">
+                <div className="tooltip tooltip-bottom">
+                  <img className="h-10 object-contain rounded-lg" src="" />
+                </div>
+                <Link  to='/sign-up'>
+                  <button
+                    className="bg-transparent border-2 border-mongo px-5 py-2 text-mongo font-body font-semibold rounded"
+                    type="button"
+                  >
+                    Sign Up
+                  </button>
+                </Link>
+              </div> */}
             </ul>
           </div>
           <Link
@@ -68,19 +114,41 @@ const Navmenu = () => {
             {li}
           </ul>
 
-          <div className="flex gap-3 items-center">
-            <div className="tooltip tooltip-bottom">
-              <img className="h-10 object-contain rounded-lg" src="" />
+          {user ? (
+            <div className="flex gap-3 items-center">
+              <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
+                <img
+                  className="h-10 object-contain rounded-lg"
+                  src={
+                    user?.photoURL !== "" ? user?.photoURL : <FaUserSecret />
+                  }
+                />
+              </div>
+              <Link>
+                <button
+                  onClick={handleLogOut}
+                  className="bg-transparent border-2 border-mongo px-5 py-2 text-mongo font-body font-semibold rounded"
+                  type="button"
+                >
+                  Logout
+                </button>
+              </Link>
             </div>
-            <Link>
-              <button
-                className="bg-transparent border-2 border-mongo px-5 py-2 text-mongo font-body font-semibold rounded"
-                type="button"
-              >
-                Sign In
-              </button>
-            </Link>
-          </div>
+          ) : (
+            <div className="flex gap-3 items-center">
+                <div className="tooltip tooltip-bottom">
+                  <img className="h-10 object-contain rounded-lg" src="" />
+                </div>
+                <Link  to='/sign-in'>
+                  <button
+                    className="bg-transparent border-2 border-mongo px-5 py-2 text-mongo font-body font-semibold rounded"
+                    type="button"
+                  >
+                    Sign In
+                  </button>
+                </Link>
+              </div>
+          )}
         </div>
       </div>
     </div>

@@ -15,6 +15,25 @@ const AddEquipments = () => {
         const description = form.description.value;
         const newProduct = {name, category, price, rating, customization, processing, photo, description}
         console.log(newProduct);
+        //send data to the server
+        fetch('http://localhost:5000/store',{
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newProduct)
+        })
+        .then(res=> res.json())
+        .then(data=> {
+            console.log(data);
+            if(data.insertedId){
+                Swal.fire({
+                    title: "Product Added!",
+                    icon: "success"
+                  });
+            }
+        })
+        form.reset();
        
     }
   return (
