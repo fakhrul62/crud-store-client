@@ -14,6 +14,7 @@ const ProductDetails = () => {
     rating,
     customization,
     processing,
+    stock,
     user,
     email,
     photo,
@@ -38,6 +39,7 @@ const ProductDetails = () => {
           </div>
           <h3 className="font-logo mb-2"> Customization:  {customization} </h3>
           <h3 className="font-logo mb-2"> Processing Time:  {processing} Hours </h3>
+          <h3 className="font-logo mb-2"> QTY:  {stock} </h3>
           <h3 className="font-logo mb-2"> Added By:  {user} : {email} </h3>
           <p className="font-logo"> Description:  <span className="text-zinc-600">{description}</span> </p>
         </div>

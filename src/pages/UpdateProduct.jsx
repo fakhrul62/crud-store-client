@@ -12,6 +12,7 @@ const UpdateProduct = () => {
     rating,
     customization,
     processing,
+    stock,
     user,
     email,
     photo,
@@ -26,6 +27,7 @@ const UpdateProduct = () => {
     const rating = form.rating.value;
     const customization = form.customization.value;
     const processing = form.processing.value;
+    const stock = form.stock.value;
     const user = form.user.value;
     const email = form.email.value;
     const photo = form.photo.value;
@@ -37,6 +39,7 @@ const UpdateProduct = () => {
       rating,
       customization,
       processing,
+      stock,
       user,
       email,
       photo,
@@ -146,6 +149,18 @@ const UpdateProduct = () => {
               />
             </label>
             <label className="form-control w-full ">
+              <div className="label">
+                <span className="label-text">Stock Status</span>
+              </div>
+              <input
+                type="text"
+                placeholder="Stock Status"
+                name="stock"
+                defaultValue={stock}
+                className="input input-bordered w-full "
+              />
+            </label>
+            <label className="form-control col-span-2 w-full ">
               <div className="label">
                 <span className="label-text">Users Name</span>
               </div>

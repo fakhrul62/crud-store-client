@@ -5,6 +5,7 @@ import CategorySection from "../components/CategorySection";
 import { useLoaderData } from "react-router-dom";
 import AboutSection from "../components/AboutSection";
 import BlogSection from "../components/BlogSection";
+import { Fade, Slide } from "react-awesome-reveal";
 
 const Home = () => {
   const allProducts = useLoaderData();
@@ -13,15 +14,20 @@ const Home = () => {
       <div className="bg-white md:py-24 py-10">
         <div className="w-10/12 mx-auto grid grid-cols-1 md:grid-cols-4">
           <div className="col-span-3">
-            <h3 className="font-semibold text-xl font-body text-zinc-900">
-              Gear Up for Greatness
-            </h3>
+            <Slide>
+              <h3 className="font-semibold text-xl font-body text-zinc-900">
+                Gear Up for Greatness
+              </h3>
+            </Slide>
             <h1 className="font-extrabold md:text-6xl text-4xl font-logo my-5 text-zinc-900">
               Elevate Your Game with Top-Quality Sports Equipment
             </h1>
-            <h3 className="font-semibold text-xl font-body text-zinc-900">
-              Unleash Your Potential with Gear Built for Champions
-            </h3>
+
+            <Fade delay={1e3} cascade damping={1e-1}>
+              <h3 className="font-semibold text-xl font-body text-zinc-900">
+                Unleash Your Potential with Gear Built for Champions
+              </h3>
+            </Fade>
             <ul className="*:text-zinc-900 *:flex *:items-center *:gap-2 *:font-body *:font-medium mt-7">
               <li>
                 <FaRunning className="text-mongo" /> Train Hard. Play Harder.
