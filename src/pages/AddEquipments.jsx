@@ -121,7 +121,7 @@ const AddEquipments = () => {
             <input
               type="text"
               value={user.displayName}
-              name="user" disabled
+              name="user"
               className="input input-bordered w-full "
             />
           </label>
@@ -132,7 +132,7 @@ const AddEquipments = () => {
             <input
               type="text"
               value={user.email}
-              name="email" disabled
+              name="email"
               className="input input-bordered w-full "
             />
           </label>
@@ -151,12 +151,12 @@ const AddEquipments = () => {
             <div className="label">
               <span className="label-text">Description</span>
             </div>
-            <input
-              type="text"
-              placeholder="Description"
-              name="description"
-              className="input input-bordered w-full "
-            />
+            <textarea
+                type="text"
+                placeholder="Description"
+                name="description"
+                className="input input-bordered w-full h-32"
+              />
           </label>
           <div className="col-span-2">
             <button

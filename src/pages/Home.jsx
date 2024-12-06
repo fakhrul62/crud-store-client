@@ -33,10 +33,10 @@ const Home = () => {
             </ul>
             <div className="mt-10">
               <a
-                href="#counselors"
+                href="#products"
                 className="bg-transparent border-2 border-fireb px-5 py-2 text-fireb font-body font-semibold rounded"
               >
-                See Our Services
+                See Our Products
               </a>
             </div>
           </div>
