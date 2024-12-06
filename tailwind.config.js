@@ -6,7 +6,12 @@ export default {
     themes: ["light"],
   },
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'mongo': '#3cad45',
+        'fireb': '#f26120',
+      }
+    },
   },
   plugins: [require("daisyui"), flowbite.plugin()],
 };
