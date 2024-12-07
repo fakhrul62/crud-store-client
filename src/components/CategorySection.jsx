@@ -4,10 +4,10 @@ const CategorySection = () => {
   return (
     <div className="py-20 w-10/12 mx-auto">
       <div>
-        <h2 className="font-body font-bold text-black text-3xl text-center my-3">
+        <h2 className="font-body font-bold   text-3xl text-center my-3">
           All Categories
         </h2>
-        <p className="font-body text-black text-center mb-10">
+        <p className="font-body   text-center mb-10">
           Find the category that suits you
         </p>
       </div>

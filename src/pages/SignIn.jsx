@@ -75,11 +75,11 @@ const SignIn = () => {
               />
             </div>
             <div className="form-control mt-6">
-              <button className="btn bg-black hover:bg-fireb text-white">Log In</button>
+              <button className="btn   hover:bg-fireb text-white">Log In</button>
             </div>
           </form>
           <div className="my-4 text-center">
-            <button onClick={googleSignIn} className="btn bg-black text-white hover:bg-fireb font-body tracking-wide uppercase">
+            <button onClick={googleSignIn} className="btn   text-white hover:bg-fireb font-body tracking-wide uppercase">
               Sign in with Google
             </button>
           </div>

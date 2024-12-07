@@ -22,13 +22,13 @@ const ProductCard2 = ({ product }) => {
         <img src={photo} className="h-80 w-full object-cover rounded-md" />
         <div className="mt-2">
           <h3 className="font-logo text-lg">{name}</h3>
-          <h3 className="font-body text-zinc-600">{category}</h3>
+          <h3 className="font-body  ">{category}</h3>
           <div className="flex justify-between">
             <h3 className="font-logo">
               Price: <span className="text-mongo">$</span>
               {price}
             </h3>
-            <h3 className="font-logo text-zinc-700 flex items-center">
+            <h3 className="font-logo   flex items-center">
               <AiTwotoneStar className="text-fireb" />
               {rating}
             </h3>
@@ -36,7 +36,7 @@ const ProductCard2 = ({ product }) => {
           <div className="flex items-center justify-between mt-3 ">
           <Link to={`/details/${_id}`}>
                       <button
-                        className="hover:bg-sky-100 bg-white border hover:border-sky-600 border-zinc-700 px-5 py-1 text-zinc-900 hover:text-sky-600 font-body rounded"
+                        className="hover:bg-sky-100   border hover:border-sky-600 border-zinc-700 px-5 py-1   hover:text-sky-600 font-body rounded"
                         type="button"
                       >
                         View Details

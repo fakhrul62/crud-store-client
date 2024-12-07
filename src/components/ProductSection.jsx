@@ -11,10 +11,10 @@ const ProductSection = ({ allProducts }) => {
   return (
     <div className="py-20 w-10/12 mx-auto" id="products">
       <div>
-        <h2 className="font-body font-bold text-black text-3xl text-center my-3">
+        <h2 className="font-body font-bold   text-3xl text-center my-3">
           Our Products
         </h2>
-        <p className="font-body text-black text-center mb-10">
+        <p className="font-body   text-center mb-10">
           Find the equipment that was meant for you
         </p>
       </div>

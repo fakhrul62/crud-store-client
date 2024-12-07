@@ -145,7 +145,7 @@ const SignUp = () => {
               />
             </div>
             <div className="form-control mt-6">
-              <button className="btn bg-black text-white hover:bg-mongo">
+              <button className="btn   text-white hover:bg-mongo">
                 Sign Up
               </button>
             </div>

@@ -11,7 +11,7 @@ const MyEquipments = () => {
   const myProducts = allProducts.filter((prod) => prod.email === user.email);
   return (
     <div>
-      <div className="bg-zinc-100 py-10">
+      <div className="  py-10">
         <div className="w-10/12 mx-auto">
           <h1 className="font-logo text-3xl">My Equipments</h1>
         </div>

@@ -173,7 +173,7 @@ const AddEquipments = () => {
           <div className="col-span-2">
             <button
               type="submit"
-              className="btn w-full bg-zinc-900 text-white py-3 rounded-md hover:bg-zinc-200 hover:text-black hover:border"
+              className="btn w-full py-3 rounded-md "
             >
               Add Product
             </button>

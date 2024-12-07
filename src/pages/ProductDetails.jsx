@@ -26,13 +26,13 @@ const ProductDetails = () => {
         <div className="flex items-center"><img src={photo} className="w-full object-cover rounded-md" /></div>
         <div className="mt-2 col-span-2">
           <h3 className="font-logo text-lg font-bold">{name}</h3>
-          <h3 className="font-body text-zinc-600 mb-2">Category: {category}</h3>
+          <h3 className="font-body   mb-2">Category: {category}</h3>
           <div className="flex gap-3 mb-2">
             <h3 className="font-logo">
               Price: <span className="text-mongo">$</span>
               {price}
             </h3>
-            <h3 className="font-logo text-zinc-700 flex items-center">
+            <h3 className="font-logo   flex items-center">
               <AiTwotoneStar className="text-fireb" />
               {rating}
             </h3>
@@ -41,7 +41,7 @@ const ProductDetails = () => {
           <h3 className="font-logo mb-2"> Processing Time:  {processing} Hours </h3>
           <h3 className="font-logo mb-2"> QTY:  {stock} </h3>
           <h3 className="font-logo mb-2"> Added By:  {user} : {email} </h3>
-          <p className="font-logo"> Description:  <span className="text-zinc-600">{description}</span> </p>
+          <p className="font-logo"> Description:  <span className=" ">{description}</span> </p>
         </div>
       </div>
     </div>

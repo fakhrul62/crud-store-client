@@ -4,15 +4,15 @@ const AboutSection = () => {
   return (
     <div className="py-20 w-10/12 mx-auto">
       <div>
-        <h2 className="font-body font-bold text-black text-3xl text-center my-3">
+        <h2 className="font-body font-bold   text-3xl text-center my-3">
           About Us
         </h2>
-        <p className="font-body text-black text-center mb-10">
+        <p className="font-body   text-center mb-10">
           Quality Fitness Products, Exceptional Service
         </p>
       </div>
       <div>
-        <p className="font-body text-center text-zinc-700 md:w-7/12 mx-auto">
+        <p className="font-body text-center   md:w-7/12 mx-auto">
           You can count on Power Systems to provide quality fitness equipment
           with expert service, support, and education. We've been leading the
           way in fitness innovation since 1986. One of the reasons we are the

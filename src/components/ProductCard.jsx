@@ -52,13 +52,13 @@ const ProductCard = ({ product, allProducts, setAllProducts }) => {
       <img src={photo} className="h-80 w-full object-cover rounded-md" />
       <div className="mt-2">
         <h3 className="font-logo text-lg">{name}</h3>
-        <h3 className="font-body text-zinc-600">{category}</h3>
+        <h3 className="font-body  ">{category}</h3>
         <div className="flex justify-between">
           <h3 className="font-logo">
             Price: <span className="text-mongo">$</span>
             {price}
           </h3>
-          <h3 className="font-logo text-zinc-700 flex items-center">
+          <h3 className="font-logo   flex items-center">
             <AiTwotoneStar className="text-fireb" />
             {rating}
           </h3>
@@ -66,7 +66,7 @@ const ProductCard = ({ product, allProducts, setAllProducts }) => {
         <div className="flex items-center justify-between mt-3 ">
           <Link to={`/update/${_id}`}>
             <button
-              className="hover:bg-[#3cad4548] bg-white border hover:border-mongo border-zinc-700 px-10 py-1 text-zinc-900 hover:text-[#209429] font-body rounded"
+              className="hover:bg-[#3cad4548]   border hover:border-mongo border-zinc-700 px-10 py-1   hover:text-[#209429] font-body rounded"
               type="button"
             >
               Update
@@ -74,7 +74,7 @@ const ProductCard = ({ product, allProducts, setAllProducts }) => {
           </Link>
           <Link>
             <button onClick={() => handleDelete(_id)}
-              className="hover:bg-[#f2612048] bg-white border hover:border-fireb border-zinc-700 px-10 py-1 text-zinc-900 hover:text-[#f26120] font-body rounded"
+              className="hover:bg-[#f2612048]   border hover:border-fireb border-zinc-700 px-10 py-1   hover:text-[#f26120] font-body rounded"
               type="button"
             >
               Delete
